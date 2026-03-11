@@ -17,8 +17,6 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen
 
 ENV PATH="/app/.venv/bin:$PATH"
-
-CMD ["alpaca-mcp-server", "serve"]
-
+EXPOSE 8000
 # For cloud deployment
 CMD ["alpaca-mcp-server", "serve", "--transport", "streamable-http", "--host", "0.0.0.0", "--port", "8000"]
